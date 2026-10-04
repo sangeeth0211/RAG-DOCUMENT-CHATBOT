@@ -4,7 +4,7 @@ A beginner-friendly **Retrieval-Augmented Generation (RAG)** application built w
 
 Upload a PDF document, ask questions about its content, and get answers grounded in the uploaded document.
 
-This project is part of the **AI Projects Series** from **Karthik's Show**.
+This project is created by **Sangeeth kumar**.
 
 ## Features
 
@@ -225,37 +225,6 @@ The system prompt instructs the model to:
 - For production use, document processing and vector indexes should be cached or persisted more efficiently.
 - This demo supports one uploaded PDF at a time.
 
-## Learning Outcomes
-
-By building this project, you can understand:
-
-- What Retrieval-Augmented Generation is
-- Why documents are split into chunks
-- What embeddings represent
-- How vector similarity search works
-- How FAISS retrieves relevant context
-- How retrieved context is passed to an LLM
-- How grounding can reduce unsupported answers
-- How to build a simple AI chat interface with Streamlit
-
-## YouTube Tutorial
-
-This project is explained step by step in Tamil on **Karthik's Show**.
-
-The tutorial covers:
-
-- Project setup
-- PDF text extraction
-- Document chunking
-- Embedding generation
-- FAISS similarity search
-- Groq answer generation
-- Streamlit chat interface
-- Final RAG testing
-
-## Channel
-
-**Karthik's Show**
 
 Learn. Build. Grow.
 
