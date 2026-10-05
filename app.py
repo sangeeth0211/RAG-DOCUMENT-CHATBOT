@@ -13,6 +13,97 @@ st.set_page_config(
     layout="wide"
 )
 
+st.markdown(
+    """
+    <style>
+        html, body, [data-testid="stAppViewContainer"] {
+            background: linear-gradient(135deg, #ecf7ff 0%, #f5ebff 35%, #fff6d9 100%);
+            color: var(--text-color, #1d2340);
+        }
+
+        .stApp {
+            background: linear-gradient(135deg, #ecf7ff 0%, #f5ebff 35%, #fff6d9 100%);
+        }
+
+        .block-container {
+            padding-top: 2rem;
+            padding-bottom: 3rem;
+            max-width: 1180px;
+        }
+
+        .hero-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(228,242,255,0.9), rgba(242,231,255,0.9));
+            border: 1px solid rgba(90, 112, 255, 0.25);
+            border-radius: 24px;
+            padding: 1.6rem 1.7rem;
+            box-shadow: 0 18px 40px rgba(120, 132, 255, 0.18);
+            margin-bottom: 1.4rem;
+        }
+
+        .neon-title {
+            font-size: 2.5rem;
+            line-height: 1.15;
+            color: var(--text-color, #2a2fd8);
+            text-shadow: 0 0 10px rgba(89, 138, 255, 0.28), 0 0 18px rgba(255, 118, 196, 0.18);
+            margin-bottom: 0.35rem;
+            letter-spacing: 0.04em;
+        }
+
+        .subtext {
+            color: var(--text-color, #334164);
+            font-size: 1.04rem;
+            margin-top: 0.25rem;
+        }
+
+        .glow-badge {
+            display: inline-block;
+            padding: 0.42rem 0.8rem;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #5d8bff, #8f6cff, #ff7edb);
+            border: 1px solid rgba(255,255,255,0.4);
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            box-shadow: 0 8px 20px rgba(139, 110, 255, 0.25);
+        }
+
+        .section-box {
+            background: rgba(255,255,255,0.7);
+            border: 1px solid rgba(96, 116, 177, 0.22);
+            border-radius: 18px;
+            padding: 1rem 1.2rem;
+            box-shadow: 0 10px 24px rgba(129, 149, 255, 0.10);
+        }
+
+        [data-testid="stFileUploader"] > div {
+            background: rgba(255,255,255,0.75);
+            border: 1px solid rgba(100, 120, 255, 0.28);
+            border-radius: 16px;
+            box-shadow: 0 10px 24px rgba(137, 145, 255, 0.08);
+        }
+
+        [data-testid="stChatMessage"] {
+            background: rgba(255,255,255,0.78);
+            border: 1px solid rgba(105, 127, 255, 0.18);
+            border-radius: 18px;
+        }
+
+        .stChatInput {
+            background: rgba(255,255,255,0.82);
+            border: 1px solid rgba(103, 113, 255, 0.25);
+            border-radius: 16px;
+        }
+
+        .stMarkdown p, .stMarkdown li {
+            color: #202b46;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 load_dotenv()
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
@@ -202,16 +293,35 @@ Question:
 
     return answer
 
-st.title("📄 RAG Document Chatbot")
+st.markdown(
+    """
+    <div class="hero-card">
+        <div class="glow-badge">AI Document Assistant</div>
+        <h1 class="neon-title">Hey Sangeeth, I am your document helper.</h1>
+        <p class="subtext">
+            Drop in a PDF and I’ll help you find the answers hidden inside it with a fast, grounded RAG workflow.
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
-st.write(
-    "Upload a PDF document and ask questions "
-    "based on its content."
+st.markdown(
+    """
+    <div class="section-box">
+        <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.3rem;">
+            <span style="color: var(--primary-color, #3f3df5); font-size: 1.3rem;">📄</span>
+            <strong style="color: var(--text-color, #1d2340); font-size: 1.08rem; font-weight: 700;">Upload your document</strong>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
 )
 
 uploaded_file = st.file_uploader(
     "Upload a PDF document",
-    type=["pdf"]
+    type=["pdf"],
+    label_visibility="collapsed"
 )
 
 if uploaded_file is not None:
